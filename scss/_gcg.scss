@@ -1,12 +1,23 @@
-@mixin gcg($media) {
-    .#{$media}gcg- {
-        @for $start from 1 to 22 {
-            @for $end from 1 to 22 {
+.gcg {
+    width: 100%;
+    display: grid;
+    // grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 2fr 4fr 2.66fr 5.33fr 5.33fr 4.33fr 2.83fr 3.5fr 3.5fr 2.83fr 4.33fr 5.33fr 5.33fr 2.66fr 4fr 2fr 1fr 1fr;
+}
+
+@mixin gcg($var) {
+    .#{$var}gcg- {
+        @for $start from -22 to 22 {
+            @for $end from -22 to 22 {
                 &#{$start}-#{$end} {
-                    grid-column-start: #{$start};
-                    grid-column-end: #{$end};
+                    grid-column: #{$start}/#{$end};
                 }
             }
         }
     }
+}
+
+$list: ("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
+@each $var in $list {
+    @include gcg($var);
 }

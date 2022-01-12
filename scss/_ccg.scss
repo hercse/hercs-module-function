@@ -1,0 +1,27 @@
+:root {
+    --grid-cols: 12;
+    --grid-gap-h: 3.4rem;
+    --grid-gap-v: 3.4rem;
+}
+
+.ccg {
+    grid-gap: var(--grid-gap-v) var(--grid-gap-h);
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+}
+
+@mixin ccg($var) {
+    .#{$var}ccg- {
+        @for $start from -60 to 60 {
+            @for $end from -60 to 60 {
+                &#{$start}-#{$end} {
+                    grid-column: #{$start}/#{$end};
+                }
+            }
+        }
+    }
+}
+
+$list: ("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
+@each $var in $list {
+    @include ccg($var);
+}
