@@ -1,0 +1,12 @@
+@mixin gcg($media) {
+    .#{$media}gcg- {
+        @for $start from 1 to 22 {
+            @for $end from 1 to 22 {
+                &#{$start}-#{$end} {
+                    grid-column-start: #{$start};
+                    grid-column-end: #{$end};
+                }
+            }
+        }
+    }
+}

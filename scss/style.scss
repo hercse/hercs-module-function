@@ -1,0 +1,8 @@
+@import 'gcg';
+@import 'margin';
+// 裝置相容
+$list:("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
+@each $var in $list {
+    // 嵌入清單
+    @include gcg($var);
+}
