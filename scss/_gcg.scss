@@ -1,12 +1,13 @@
+// Framework
 .gcg {
     width: 100%;
     display: grid;
-    // grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 2fr 4fr 2.66fr 5.33fr 5.33fr 4.33fr 2.83fr 3.5fr 3.5fr 2.83fr 4.33fr 5.33fr 5.33fr 2.66fr 4fr 2fr 1fr 1fr;
 }
 
-@mixin gcg($var) {
-    .#{$var}gcg- {
+// Style
+@mixin gcg($class) {
+    .#{$class}gcg- {
         @for $start from -22 to 22 {
             @for $end from -22 to 22 {
                 &#{$start}-#{$end} {
@@ -17,7 +18,16 @@
     }
 }
 
-$list: ("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
-@each $var in $list {
-    @include gcg($var);
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include gcg($class);
+    }
 }

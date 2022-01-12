@@ -4,17 +4,24 @@
     --grid-gap-v: 3.4rem;
 }
 
-// Frame
-.ccg {
-    grid-gap: var(--grid-gap-v) var(--grid-gap-h);
-    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
-}
-
-// Rules
+// **Rules
 @mixin ccg($var) {
+    // Framework
+    .#{$var}ccg {
+        grid-gap: var(--grid-gap-v) var(--grid-gap-h);
+        grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+    }
     .#{$var}ccg- {
-        @for $start from -60 to 60 {
-            @for $end from -60 to 60 {
+        @for $cols from 1 to 12 {
+            &#{$cols*3} {
+                --grid-cols: #{$cols*3};
+            }
+        }
+    }
+    // Items
+    .#{$var}ccg- {
+        @for $start from -36 to 36 {
+            @for $end from -36 to 36 {
                 &#{$start}-#{$end} {
                     grid-column: #{$start}/#{$end};
                 }
@@ -23,8 +30,16 @@
     }
 }
 
-// Media
-$list: ("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
-@each $var in $list {
-    @include ccg($var);
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include ccg($class);
+    }
 }
