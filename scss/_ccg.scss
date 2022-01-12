@@ -20,8 +20,8 @@
     }
     // Items
     .#{$var}ccg- {
-        @for $start from -36 to 36 {
-            @for $end from -36 to 36 {
+        @for $start from -1 to 36 {
+            @for $end from -1 to 36 {
                 &#{$start}-#{$end} {
                     grid-column: #{$start}/#{$end};
                 }
