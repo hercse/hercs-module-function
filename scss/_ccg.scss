@@ -4,11 +4,13 @@
     --grid-gap-v: 3.4rem;
 }
 
+// Frame
 .ccg {
     grid-gap: var(--grid-gap-v) var(--grid-gap-h);
     grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
 }
 
+// Rules
 @mixin ccg($var) {
     .#{$var}ccg- {
         @for $start from -60 to 60 {
@@ -21,6 +23,7 @@
     }
 }
 
+// Media
 $list: ("s\:", "sm\:", "m\:", "ml\:", "l\:", "");
 @each $var in $list {
     @include ccg($var);
