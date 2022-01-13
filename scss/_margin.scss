@@ -1,0 +1,102 @@
+:root {
+    --margin-base: calc(5px + 1vw);
+}
+
+$margin:"-top" "t",
+"-right" "r",
+"-bottom" "b",
+"-left" "l";
+$margins:"-top" "-bottom" "x",
+"-right" "-left" "y";
+// 次方計算機
+@function pow($number, $exponent) {
+    $value: 1;
+    @if $exponent>0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    }
+    @return $value;
+}
+
+// Rules
+@mixin margin($var) {
+    // Margin
+    .#{$var}m {
+        @each $original,
+        $short in $margin {
+            &#{$short}- {
+                @for $i from 1 to 20 {
+                    &#{$i} {
+                        margin#{$original}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                    }
+                }
+                &-auto {
+                    margin#{$original}: auto;
+                }
+            }
+        }
+        @each $a,
+        $b,
+        $short in $margins {
+            &#{$short} {
+                @for $i from 1 to 20 {
+                    &-#{$i} {
+                        margin-#{$a}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                        margin-#{$b}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                    }
+                }
+                &-auto {
+                    margin-#{$a}: auto;
+                    margin-#{$b}: auto;
+                }
+            }
+        }
+    }
+    // Padding
+    .#{$var}p {
+        @each $original,
+        $short in $margin {
+            &#{$short}- {
+                @for $i from 1 to 20 {
+                    &#{$i} {
+                        padding#{$original}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                    }
+                }
+                &-auto {
+                    padding#{$original}: auto;
+                }
+            }
+        }
+        @each $a,
+        $b,
+        $short in $margins {
+            &#{$short} {
+                @for $i from 1 to 20 {
+                    &-#{$i} {
+                        padding-#{$a}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                        padding-#{$b}: calc(#{pow(1.3, $i)} * var(--margin-base));
+                    }
+                }
+                &-auto {
+                    padding-#{$a}: auto;
+                    padding-#{$b}: auto;
+                }
+            }
+        }
+    }
+}
+
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include margin($class);
+    }
+}

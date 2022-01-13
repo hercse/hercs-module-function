@@ -1,0 +1,23 @@
+@mixin z-index($class) {
+    .#{$class}z-index- {
+        @for $i from 0 to 20 {
+            &#{$i*10} {
+                z-index:#{$i*10}!important;
+            }
+        }
+    }
+}
+
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include z-index($class);
+    }
+}

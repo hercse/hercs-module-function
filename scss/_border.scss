@@ -1,0 +1,52 @@
+// 即將新增顏色變數支持！
+:root {
+    --border-size: ;
+    --border-color: var(--base-color);
+    --border-radius: ;
+}
+
+@mixin border($class) {
+    .#{$class}border {
+        @for $i from 1 to 10 {
+            &-#{$i} {
+                --base-color: ; //定義基準色彩
+                border: solid var(--border-size) var(--border-color);
+            }
+        }
+        &-r {
+            @for $i from 1 to 10 {
+                &-#{$i} {
+                    border-radius: calc(var(--border-radius)*#{$i});
+                }
+            }
+        }
+        $border: "left",
+        "top",
+        "right",
+        "bottom";
+        @each $var in $border {
+            &-#{$var}- {
+                @for $i from 1 to 10 {
+                    &#{$i} {
+                        --base-color: ; //定義基準色彩
+                        border-#{$var}: solid var(--border-size) var(--border-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include border($class);
+    }
+}

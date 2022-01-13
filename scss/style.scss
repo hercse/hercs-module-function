@@ -1,9 +1,18 @@
-// media
-$media-s:600px;
-$media-sm:601px;
-$media-m:801px;
-$media-ml:1201px;
-$media-l:1401px;
-// @import 'gcg';
+@import 'variables';
+@import 'gcg';
 @import 'ccg';
-// @import 'margin';
+@import 'flex';
+@import 'margin';
+@import 'font';
+@import 'z-index';
+@import 'border';
+@import 'overflow';
+@import 'position-display';
+// @import 'color-system'; //things baseic color 強制控制色彩。物件會有基準色彩，使用class去強行更改基準色彩。HLS color system. custom color system.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// 我們要講什麼故事？重點，放大它。(聚焦單一主題)
