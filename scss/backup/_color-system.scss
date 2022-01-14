@@ -1,0 +1,82 @@
+:root {
+    // border
+    // --border-color: #24271C;
+    // // font
+    // --text-decoration-color: #24271C;
+    // // basic
+    // --text-color: #24271C;
+    // --background-color: #D2CFC6;
+    --priamry-color: ;
+    --on-priamry-color: ;
+    --priamry-container-color: ;
+    --on-priamry-container-color: ;
+}
+
+// $color-list:"priamry",
+// "secondary",
+// "tertiary";
+$color-list:"priamry",
+"on-priamry",
+"priamry-container",
+"on-priamry-container";
+// // Two Colors System
+// :root {
+//     --priamry-hue: 76;
+//     --priamry-saturation: 17%;
+//     --secondary-hue: 43;
+//     --secondary-saturation: 12%;
+//     --tertiary-hue: 76;
+//     --tertiary-saturation: 30%;
+//     // 生成色票
+//     @each $var in $color-list {
+//         @for $i from 0 to 10 {
+//             --#{$var}-#{$i*10}: hsl(var(--#{$var}-hue), var(--#{$var}-saturation), #{$i*10}%)
+//         }
+//     }
+// }
+// // M3 System
+// :root {
+//     @each $color-name in $color-list {
+//         --#{$color-name}-color: var(--#{$color-name}-40);
+//         --on-#{$color-name}-color: var(--#{$color-name}-100);
+//         --#{$color-name}-container-color: var(--#{$color-name}-90);
+//         --on-#{$color-name}-container-color: var(--#{$color-name}-10);
+//     }
+// }
+// for Compoment they needs to setting
+:root {
+    --base-color: var(--priamry-color);
+    --on-base-color: var(--on-priamry-color);
+    --base-container-color: var(--priamry-container-color);
+    --on-base-container-color: var(--on-priamry-container-color);
+}
+
+$base-list:"base",
+"on-base",
+"base-container",
+"on-base-container";
+.color {
+    @each $name in $color-list {
+        //         // change all colors
+        //         &-#{$name} {
+        //             --base-color: var(--#{$name}-color)!important;
+        //             --on-base-color: var(--on-#{$name}-color)!important;
+        //             --base-container-color: var(--#{$name}-container-color)!important;
+        //             --on-base-container-color: var(--on-#{$name}-container-color)!important;
+        //         }
+        // change only colors
+        @each $base-name in $base-list {
+            &-#{$base-name}-#{$name} {
+                --#{$base-name}-color: var(--#{$name}-color)!important;
+            }
+        }
+    }
+    &-dark {
+        // @each $color-name in $color-list {
+        //     --#{$color-name}-color: var(--#{$color-name}-80)!important;
+        //     --on-#{$color-name}-color: var(--#{$color-name}-20)!important;
+        //     --#{$color-name}-container-color: var(--#{$color-name}-30)!important;
+        //     --on-#{$color-name}-container-color: var(--#{$color-name}-90)!important;
+        // }
+    }
+}

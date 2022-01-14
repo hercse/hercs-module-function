@@ -7,7 +7,7 @@
 
 // Style
 @mixin gcg($class) {
-    .#{$class}gcg- {
+    .#{$class}#{'gcg'+'\\'+':'} {
         @for $start from -1 to 22 {
             @for $end from -1 to 22 {
                 &#{$start}-#{$end} {

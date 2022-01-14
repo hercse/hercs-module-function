@@ -1,0 +1,58 @@
+:root {
+    // 基準色階以AAA對比標準為主
+    // container是特殊色，也有應得的特殊底。
+    --priamry-color: #24271C;
+    --on-priamry-color: #D2CFC6;
+    --priamry-container-color: #24271C;
+    --on-priamry-container-color: #D2CFC6;
+}
+
+$color-list: // priamry
+"priamry",
+"on-priamry",
+"priamry-container",
+"on-priamry-container",
+// secondary
+"secondary",
+"on-secondary",
+"secondary-container",
+"on-secondary-container";
+$base-list:"base",
+"on-base",
+"base-container",
+"on-base-container";
+:root {
+    --base-color: var(--priamry-color);
+    --on-base-color: var(--on-priamry-color);
+    --base-container-color: var(--priamry-container-color);
+    --on-base-container-color: var(--on-priamry-container-color);
+}
+
+.color {
+    @each $name in $color-list {
+        // change only colors
+        @each $base-name in $base-list {
+            &-#{$base-name}-#{$name} {
+                --#{$base-name}-color: var(--#{$name}-color)!important;
+            }
+        }
+    }
+    &-dark {
+        --base-color: var(--on-priamry-color);
+        --on-base-color: var(--priamry-color);
+        --base-container-color: var(--on-priamry-container-color);
+        --on-base-container-color: var(--priamry-container-color);
+        // Dark Mode 狀態
+        &.#{'dark'+'\\'+':'}color,
+        .#{'dark'+'\\'+':'}color {
+            @each $name in $color-list {
+                // change only colors
+                @each $base-name in $base-list {
+                    &-#{$base-name}-#{$name} {
+                        --#{$base-name}-color: var(--#{$name}-color)!important;
+                    }
+                }
+            }
+        }
+    }
+}

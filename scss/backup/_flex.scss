@@ -1,0 +1,55 @@
+$align:("normal" "n", "auto" "auto", "stretch" "s", "center" "c", "start" "start", "end" "end", "flex-start" "fs", "flex-end" "fn", "self-start" "ss", "self-end" "sn", "baseline" "b");
+$justify:("normal" "n", "center" "c", "start" "start", "end" "end", "flex-start" "fs", "flex-end" "fn", "self-start" "ss", "self-end" "sn", "left" "l", "right" "r", "baseline" "b", "space-between" "sb", "space-around" "sa", "space-evenly" "se", "stretch" "s", "auto" "auto");
+$flow:("nowrap" "nw", "wrap" "w", "wrap-reverse" "wr", "row" "r", "row-reverse" "rr", "column" "c", "column-reverse" "cr");
+@mixin flex($var) {
+    .#{$var}flex {
+        display: flex;
+        // align
+        @each $original,
+        $short in $align {
+            &-ai-#{$short} {
+                align-items: #{$original};
+            }
+            &-as-#{$short} {
+                align-self: #{$original};
+            }
+            &-ac-#{$short} {
+                align-content: #{$original};
+            }
+        }
+        // justify
+        @each $original,
+        $short in $justify {
+            &-juc-#{$short} {
+                justify-content: #{$original};
+            }
+            &-jus-#{$short} {
+                justify-self: #{$original};
+            }
+            &-jui-#{$short} {
+                justify-items: #{$original};
+            }
+        }
+        // flow
+        @each $original,
+        $short in $flow {
+            &-ffw-#{$short} {
+                flex-flow: #{$original};
+            }
+        }
+    }
+}
+
+// Media Worker
+$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $list {
+    @media screen #{$media} {
+        @include flex($class);
+    }
+}

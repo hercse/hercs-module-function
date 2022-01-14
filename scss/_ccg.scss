@@ -19,7 +19,7 @@
         }
     }
     // Items
-    .#{$var}ccg- {
+    .#{$var}#{'ccg'+'\\'+':'} {
         @for $start from -1 to 36 {
             @for $end from -1 to 36 {
                 &#{$start}-#{$end} {

@@ -8,7 +8,7 @@
 @import 'border';
 @import 'overflow';
 @import 'position-display';
-// @import 'color-system'; //things baseic color 強制控制色彩。物件會有基準色彩，使用class去強行更改基準色彩。HLS color system. custom color system.
+@import 'color-system'; //things baseic color 強制控制色彩。物件會有基準色彩，使用class去強行更改基準色彩。HLS color system. custom color system.
 * {
     margin: 0;
     padding: 0;

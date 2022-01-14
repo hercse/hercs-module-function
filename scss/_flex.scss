@@ -1,40 +1,37 @@
-$align:("normal" "n", "auto" "auto", "stretch" "s", "center" "c", "start" "start", "end" "end", "flex-start" "fs", "flex-end" "fn", "self-start" "ss", "self-end" "sn", "baseline" "b");
-$justify:("normal" "n", "center" "c", "start" "start", "end" "end", "flex-start" "fs", "flex-end" "fn", "self-start" "ss", "self-end" "sn", "left" "l", "right" "r", "baseline" "b", "space-between" "sb", "space-around" "sa", "space-evenly" "se", "stretch" "s", "auto" "auto");
-$flow:("nowrap" "nw", "wrap" "w", "wrap-reverse" "wr", "row" "r", "row-reverse" "rr", "column" "c", "column-reverse" "cr");
+$align:("normal", "auto", "stretch", "center", "start", "end", "flex-start", "flex-end", "self-start", "self-end", "baseline");
+$justify:("normal", "center", "start", "end", "flex-start", "flex-end", "self-start", "self-end", "left", "right", "baseline", "space-between", "space-around", "space-evenly", "stretch", "auto");
+$flow:("nowrap", "wrap", "wrap-reverse", "row", "row-reverse", "column", "column-reverse");
 @mixin flex($var) {
     .#{$var}flex {
         display: flex;
         // align
-        @each $original,
-        $short in $align {
-            &-ai-#{$short} {
-                align-items: #{$original};
+        @each $name in $align {
+            &-ai-#{$name} {
+                align-items: #{$name};
             }
-            &-as-#{$short} {
-                align-self: #{$original};
+            &-as-#{$name} {
+                align-self: #{$name};
             }
-            &-ac-#{$short} {
-                align-content: #{$original};
+            &-ac-#{$name} {
+                align-content: #{$name};
             }
         }
         // justify
-        @each $original,
-        $short in $justify {
-            &-juc-#{$short} {
-                justify-content: #{$original};
+        @each $name in $justify {
+            &-juc-#{$name} {
+                justify-content: #{$name};
             }
-            &-jus-#{$short} {
-                justify-self: #{$original};
+            &-jus-#{$name} {
+                justify-self: #{$name};
             }
-            &-jui-#{$short} {
-                justify-items: #{$original};
+            &-jui-#{$name} {
+                justify-items: #{$name};
             }
         }
         // flow
-        @each $original,
-        $short in $flow {
-            &-ffw-#{$short} {
-                flex-flow: #{$original};
+        @each $name in $flow {
+            &-ffw-#{$name} {
+                flex-flow: #{$name};
             }
         }
     }
