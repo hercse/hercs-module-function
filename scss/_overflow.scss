@@ -1,6 +1,6 @@
+$overflow:("visible", "hidden", "clip", "scroll", "auto");
 @mixin overflow($class) {
     .#{$class}overflow {
-        $overflow: "visible", "hidden", "clip", "scroll", "auto";
         @each $var in $overflow {
             &-#{$var} {
                 overflow: #{$var};
@@ -10,14 +10,14 @@
 }
 
 // Media Worker
-$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+$media-worker: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
 #{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
 #{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
 #{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
 #{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
 '' '';
 @each $class,
-$media in $list {
+$media in $media-worker {
     @media screen #{$media} {
         @include overflow($class);
     }

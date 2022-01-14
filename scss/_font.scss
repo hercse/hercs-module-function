@@ -82,7 +82,7 @@ $text-transform:"capitalize",
         }
         @each $name in $text-decoration {
             &#{$name} {
-                --base-color: ;
+                // --base-color: ;
                 text-decoration:#{$name};
                 text-decoration-color: var(--text-decoration-color);
             }
@@ -99,15 +99,18 @@ $text-transform:"capitalize",
 }
 
 // Media Worker
-$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+$media-worker: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
 #{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
 #{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
 #{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
 #{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
 '' '';
 @each $class,
-$media in $list {
+$media in $media-worker {
     @media screen #{$media} {
         @include font($class);
     }
 }
+
+// Hover Worker #{$states}
+// @include font(#{'hover'+'\\'+':'}, #{':hover'});

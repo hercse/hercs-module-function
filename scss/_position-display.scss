@@ -2,6 +2,9 @@
     --position-base: ;
 }
 
+$position: ("static", "relative", "absolute", "sticky", "fixed");
+$way:("top", "bottom", "left", "right");
+$display:( "block", "inline", "inline-block", "flex", "inline-flex", "grid", "inline-grid", "flow-root", "none", "contents", "table", "table-row", "list-item", "inherit", "initial", "revert", "unset");
 // 次方計算機
 @function pow($number, $exponent) {
     $value: 1;
@@ -15,9 +18,6 @@
 
 // rules
 @mixin position-display($class) {
-    $position: "static", "relative", "absolute", "sticky", "fixed";
-    $way: "top", "bottom", "left", "right";
-    $display: "block", "inline", "inline-block", "flex", "inline-flex", "grid", "inline-grid", "flow-root", "none", "contents", "table", "table-row", "list-item", "inherit", "initial", "revert", "unset";
     @each $name in $position {
         .#{$class}#{$name} {
             position: #{$name}!important;
@@ -43,14 +43,14 @@
 }
 
 // Media Worker
-$list: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+$media-worker: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
 #{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
 #{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
 #{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
 #{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
 '' '';
 @each $class,
-$media in $list {
+$media in $media-worker {
     @media screen #{$media} {
         @include position-display($class);
     }

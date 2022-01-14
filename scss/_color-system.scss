@@ -37,20 +37,21 @@ $base-list:"base",
             }
         }
     }
-    &-dark {
-        --base-color: var(--on-priamry-color);
-        --on-base-color: var(--priamry-color);
-        --base-container-color: var(--on-priamry-container-color);
-        --on-base-container-color: var(--priamry-container-color);
-        // Dark Mode 狀態
-        &.#{'dark'+'\\'+':'}color,
-        .#{'dark'+'\\'+':'}color {
-            @each $name in $color-list {
-                // change only colors
-                @each $base-name in $base-list {
-                    &-#{$base-name}-#{$name} {
-                        --#{$base-name}-color: var(--#{$name}-color)!important;
-                    }
+}
+
+.dark {
+    --base-color: var(--on-priamry-color);
+    --on-base-color: var(--priamry-color);
+    --base-container-color: var(--on-priamry-container-color);
+    --on-base-container-color: var(--priamry-container-color);
+    // Dark Mode 狀態
+    &.#{'dark'+'\\'+':'}color,
+    .#{'dark'+'\\'+':'}color {
+        @each $name in $color-list {
+            // change only colors
+            @each $base-name in $base-list {
+                &-#{$base-name}-#{$name} {
+                    --#{$base-name}-color: var(--#{$name}-color)!important;
                 }
             }
         }

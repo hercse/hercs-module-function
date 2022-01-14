@@ -1,0 +1,37 @@
+$base-list:"base",
+"on-base",
+"base-container",
+"on-base-container";
+@mixin color-control($class) {
+    .#{$class}text-color {
+        @each $name in $base-list {
+            &-#{$name} {
+                color: var(--#{$name}-color);
+            }
+        }
+    }
+    .#{$class}bg {
+        @each $name in $base-list {
+            &-#{$name} {
+                background-color: var(--#{$name}-color);
+            }
+        }
+    }
+}
+
+// Media Worker
+$media-worker: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
+'' '';
+@each $class,
+$media in $media-worker {
+    @media screen #{$media} {
+        @include color-control($class);
+    }
+}
+
+// Hover Worker #{$states}
+// @include color-control(#{'hover'+'\\'+':'}, #{':hover'});
