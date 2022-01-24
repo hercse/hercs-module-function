@@ -9,7 +9,6 @@
     .#{$class}border {
         @for $i from 1 to 10 {
             &-#{$i} {
-                --base-color: ; //定義基準色彩
                 border: solid var(--border-size) var(--border-color);
             }
         }
@@ -28,7 +27,6 @@
             &-#{$var}- {
                 @for $i from 1 to 10 {
                     &#{$i} {
-                        --base-color: ; //定義基準色彩
                         border-#{$var}: solid var(--border-size) var(--border-color);
                     }
                 }
@@ -38,12 +36,12 @@
 }
 
 // Media Worker
-$media-worker: #{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+$media-worker:'' '',
+#{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
 #{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
 #{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
 #{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
-#{'l'+'\\'+':'} 'and (min-width: #{$media-l})',
-'' '';
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})';
 @each $class,
 $media in $media-worker {
     @media screen #{$media} {

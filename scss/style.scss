@@ -10,10 +10,24 @@
 @import 'overflow';
 @import 'position-display';
 @import 'color-control';
+@import 'height-width';
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    line-height: 100%;
 }
 
+body {
+    background-color: var(--on-base-color);
+    color: var(--base-color);
+}
+
+::selection {
+    color: var(--on-base-color);
+    background-color: var(--base-color);
+}
+
+// letter-space，目前只可使用變數自訂。
+// 變數名稱不方便
 // 我們要講什麼故事？重點，放大它。(聚焦單一主題)
