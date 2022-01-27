@@ -1,14 +1,13 @@
 # hercs-module-function
 自己用的模組化功能
 
-## 模組化CSS (完整)
-若要使用，請輸入以下代碼：
+## style.scss
 
 ```
 <link rel="stylesheet" href="https://module-function.herc.se/scss/style.css">
 ```
 
-## 滑鼠功能
+## cursor.js
 
 ```
 cursor((e) => {
