@@ -1,4 +1,4 @@
-# hercs-module-function
+# HERCS's + Module Function
 自己用的模組化功能
 
 ## 待製作的功能
