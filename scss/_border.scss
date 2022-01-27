@@ -1,8 +1,8 @@
 // 即將新增顏色變數支持！
 :root {
-    --border-size: ;
+    --border-size: 0;
     --border-color: var(--base-color);
-    --border-radius: ;
+    --border-radius: 0;
 }
 
 @mixin border($class) {
