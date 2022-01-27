@@ -15,3 +15,4 @@ function cursor(code, element) {
     });
 
 }
+export { cursor };
