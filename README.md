@@ -1,6 +1,8 @@
 # HERCS's + Module Function
 自己用的模組化功能
 
+![[Twitter]]("https://twitter.com/HERCS_ART/")
+
 ## 待製作的功能
 - 整合所有``/js``裡面的資料。
 - 選單開關端口。(自訂開關物件，預設開關。開關訊號發送、已開啟時間。)
