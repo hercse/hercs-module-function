@@ -16,4 +16,6 @@ cursor((e) => {
         }, "body"); // defult give css variable to "body".
 ```
 
-會不定時更新，若無法使用請記得重新到此網站查閱。
+
+
+⚠ 會不定時更新，若無法使用請記得重新到此網站查閱。
