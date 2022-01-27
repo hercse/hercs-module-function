@@ -1,7 +1,7 @@
 import { cursor } from "cursor.js";
 
 const main = {
-    "cursor": cursor;
+    "cursor": cursor
 }
 
 export { main }
