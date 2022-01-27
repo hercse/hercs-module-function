@@ -1,7 +1,7 @@
 # hercs-module-function
 自己用的模組化功能
 
-[ [Twitter](https://twitter.com/HERCS_ART/) ]
+請求任何使用權：[ [Twitter](https://twitter.com/HERCS_ART/) ]。
 
 ## 待製作的功能
 - 整合所有``/js``裡面的資料。
