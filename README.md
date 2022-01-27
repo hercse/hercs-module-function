@@ -1,4 +1,4 @@
-# HERCS's + Module Function
+# hercs-module-function
 自己用的模組化功能
 
 [ [Twitter](https://twitter.com/HERCS_ART/) ]
