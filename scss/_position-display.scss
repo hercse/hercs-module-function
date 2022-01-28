@@ -36,7 +36,7 @@ $display:( "block", "inline", "inline-block", "flex", "inline-flex", "grid", "in
             }
         }
     }
-    .d- {
+    .#{$class}d- {
         @each $name in $display {
             &#{$name} {
                 display: #{$name}!important;
