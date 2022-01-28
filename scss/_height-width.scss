@@ -15,18 +15,34 @@
 }
 
 $class-name:("h""height", "w""width");
-@each $name,
-$style in $class-name {
-    // 25% 制
-    @for $i from 0 to 4 {
-        .#{$name}-#{$i*25} {
-            #{$style}:#{$i*25%}!important;
+@mixin height-width($class) {
+    @each $name,
+    $style in $class-name {
+        // 25% 制
+        @for $i from 0 to 4 {
+            .#{$class}#{$name}-#{$i*25} {
+                #{$style}:#{$i*25%}!important;
+            }
+        }
+        //次方增長
+        @for $i from 1 to 10 {
+            .#{$class}#{$name}-#{$i} {
+                #{$style}:clac(#{pow(1.3, $i)}*var(--#{$style}));
+            }
         }
     }
-    //次方增長
-    @for $i from 1 to 10 {
-        .#{$name}-#{$i} {
-            #{$style}:clac(#{pow(1.3, $i)}*var(--#{$style}));
-        }
+}
+
+// Media Worker
+$media-worker:'' '',
+#{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})';
+@each $class,
+$media in $media-worker {
+    @media screen #{$media} {
+        @include height-width($class);
     }
 }
