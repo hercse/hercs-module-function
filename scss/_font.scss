@@ -9,6 +9,7 @@
     --text-decoration-size: 2px;
     --text-decoration-color: var(--base-color);
     --letter-spacing: auto;
+    --font-weight: normal;
 }
 
 body {
@@ -36,7 +37,7 @@ $text-transfrom:("none", "capitalize" "Aa", "uppercase" "AA", "lowercase" "aa");
     .#{$class}fw {
         @for $i from 1 to 10 {
             &-#{$i*100} {
-                font-weight: #{$i*100};
+                --font-weight: #{$i*100};
             }
         }
     }
@@ -48,6 +49,7 @@ $text-transfrom:("none", "capitalize" "Aa", "uppercase" "AA", "lowercase" "aa");
             --header-size: var(--header-#{$i});
             font-size: var(--header-#{$i});
             letter-spacing: var(--letter-spacing);
+            font-weight: var(--font-weight);
         }
     }
     // diaplay power-size
