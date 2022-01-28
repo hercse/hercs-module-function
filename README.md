@@ -56,6 +56,7 @@ cursor((e) => {
 --text-decoration-size: 2px;
 --text-decoration-color: var(--base-color);
 --letter-spacing: auto;
+--font-weight: normal;
 ```
 ### _border.scss
 ```
