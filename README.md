@@ -26,30 +26,6 @@ cursor((e) => {
         }, "body"); // defult give css variable to "body".
 ```
 
-### 滑順滾動適配 (Windows Only)
-
-#### CDN
-```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
-<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
-```
-
-#### Javascript
-```
-if (document.querySelector('[data-scroll-container]') && navigator.platform == 'Win32') {
-                var scroll = new LocomotiveScroll({
-                    el: document.querySelector('[data-scroll-container]'),
-                    smooth: true
-                });
-                setTimeout(() => {
-                    scroll.update();
-                    document.querySelector(".header").addEventListener('mousemove', () => {
-                        scroll.update();
-                    })
-                }, 2000)
-            }
-```
-
 ## Varibale Settings
 ### _color-system.scss
 ```
@@ -99,5 +75,28 @@ if (document.querySelector('[data-scroll-container]') && navigator.platform == '
 --height: 20px;
 ```
 
+## 滑順滾動適配 (Windows Only)
+
+### CDN
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
+```
+
+### Javascript
+```
+if (document.querySelector('[data-scroll-container]') && navigator.platform == 'Win32') {
+                var scroll = new LocomotiveScroll({
+                    el: document.querySelector('[data-scroll-container]'),
+                    smooth: true
+                });
+                setTimeout(() => {
+                    scroll.update();
+                    document.querySelector(".header").addEventListener('mousemove', () => {
+                        scroll.update();
+                    })
+                }, 2000)
+            }
+```
 
 ⚠ 會不定時更新，若無法使用請記得重新到此網站查閱。
