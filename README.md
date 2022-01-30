@@ -26,7 +26,7 @@ cursor((e) => {
         }, "body"); // defult give css variable to "body".
 ```
 
-### 滑順滾動模組適配
+### 滑順滾動適配 (Windows Only)
 
 #### CDN
 ```
