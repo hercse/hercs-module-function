@@ -6,7 +6,8 @@
 ## 待製作的功能
 - 整合所有``/js``裡面的資料。
 - 選單開關端口。(自訂開關物件，預設開關。開關訊號發送、已開啟時間。)
-- 將``cursor.js``的設定模組化，使用變數設定。
+- 將``cursor.js``的設定模組化，使用變數設定。像滑順滾動模組依樣。
+- CSS完整文件。
 
 ## Get Started
 
@@ -23,6 +24,30 @@ cursor((e) => {
             // function here, when mouse moveing.
             console.log(e);
         }, "body"); // defult give css variable to "body".
+```
+
+### 滑順滾動模組適配
+
+#### CDN
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
+```
+
+#### Javascript
+```
+if (document.querySelector('[data-scroll-container]') && navigator.platform == 'Win32') {
+                var scroll = new LocomotiveScroll({
+                    el: document.querySelector('[data-scroll-container]'),
+                    smooth: true
+                });
+                setTimeout(() => {
+                    scroll.update();
+                    document.querySelector(".header").addEventListener('mousemove', () => {
+                        scroll.update();
+                    })
+                }, 2000)
+            }
 ```
 
 ## Varibale Settings
