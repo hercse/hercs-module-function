@@ -26,10 +26,10 @@
     <!-- Header -->
     <div class="p-3 sm:p-2 ml:p-1 ccg fixed top-0 left-0">
         <h5 class="fw-500 ccg:1-10 m:h5 h4">HERCS + Blog</h5>
-        <h5 class="fw-500 ccg:10-15 m:h5 h4 text-right">About</h5>
+        <h5 class="fw-500 ccg:10-15 m:h5 h4 text-right" data-menu-control>About</h5>
     </div>
     <!-- Title -->
-    <h2 class="fw-400 mt-9 mb-8">Koakinaimarche, a cultural and creative activity focusing on children's learning.</h2>
+    <h2 class="fw-400 mt-9 mb-8" data-menu data-menu-delay-In=".2s" data-menu-delay-out="0s" data-menu-cubic-bezier="cubic-bezier(1,0,.42,.99)" data-menu-time="1s" data-menu-style="transform: translateY(20vh);opacity: 0;">Koakinaimarche, a cultural and creative activity focusing on children's learning.</h2>
     <!-- Posts -->
     <div class="posts my-2 ccg ccg-1 sm:ccg-2 m:ccg-3" style="--grid-gap-x:2vw; font-size: calc(10px + .8vw);--margin-base: calc(5px + .5vw)">
         <div class="post mb-2">
@@ -111,12 +111,20 @@
         </div>
 
     </div>
+    <style>
+        .post {
+            transform: translateX(--tx)translateY(--ty);
+            transition: 2s;
+        }
+    </style>
+    <div class="" data-menu="a" data-menu-cubic-bezier="ease-in" data-menu-time="1s" data-menu-style="padding: 0;"></div>
+    <div class="" data-menu="a" data-menu-time-out="3" data-menu-time-in="2" data-menu-style="c"></div>
     <!-- More -->
     <div class="more h3 m:h5 my-10 sm:my-9 text-center">(More)</div>
     <!-- Footer -->
     <div class="fw-900 footer mt-5">Copyright @ HERCS 2018-2022</div>
     <script type="module">
-        import { main } from "../js/index.js"; main.cursor((e) => { console.log(e); }, "body");
+        import { main } from "../js/index.js"; main.cursor((e) => { console.log(e); }, "body"); main.menu(()=>{ var a = "a" });
     </script>
 </body>
 

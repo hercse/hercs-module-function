@@ -1,5 +1,4 @@
 function cursor(code, element) {
-
     window.addEventListener('mousemove', (event) => {
         const cursor = {
             "X": event.clientX,
@@ -14,5 +13,13 @@ function cursor(code, element) {
         code(cursor);
     });
 
+    // document.querySelectorAll(".post").forEach(e => {
+    //     e.addEventListener('mousemove', (a) => {
+    //         console.log(a);
+    //     });
+    //     e.addEventListener('mouseout', () => {
+
+    //     });
+    // })
 }
 export { cursor };
