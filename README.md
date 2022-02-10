@@ -90,13 +90,15 @@ if (document.querySelector('[data-scroll-container]') && navigator.platform == '
                     el: document.querySelector('[data-scroll-container]'),
                     smooth: true
                 });
-                setTimeout(() => {
+}
+
+// 適用於初始化刷新與刷新監聽事件，請放在適當的地方。
+setTimeout(() => {
                     scroll.update();
-                    document.querySelector(".header").addEventListener('mousemove', () => {
+                    document.querySelector("<DOM物件>").addEventListener('mousemove', () => {
                         scroll.update();
                     })
-                }, 2000)
-            }
+}, 2000)
 ```
 
 ⚠ 會不定時更新，若無法使用請記得重新到此網站查閱。
