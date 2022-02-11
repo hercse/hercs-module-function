@@ -19,7 +19,7 @@ $class-name:("h""height", "w""width");
     @each $name,
     $style in $class-name {
         // 25% 制
-        @for $i from 0 to 4 {
+        @for $i from 0 to 5 {
             .#{$class}#{$name}-#{$i*25} {
                 #{$style}:#{$i*25%}!important;
             }
