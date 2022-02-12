@@ -73,7 +73,7 @@ $text-transfrom:("none", "capitalize" "Aa", "uppercase" "AA", "lowercase" "aa");
             }
         }
         @each $name in $text-decoration {
-            &#{$name} {
+            &decoration-#{$name} {
                 text-decoration:#{$name};
                 text-decoration-color: var(--text-decoration-color);
             }
