@@ -10,7 +10,7 @@
     .#{$var}ccg- {
         width: 100%;
         display: grid;
-        @for $cols from 1 to 24 {
+        @for $cols from 1 to 25 {
             &#{$cols} {
                 --grid-cols: #{$cols};
             }
