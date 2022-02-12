@@ -77,6 +77,8 @@ cursor((e) => {
 
 ## 滑順滾動適配 (Windows Only)
 
+注意！Body不能有外距，必須設置在data-scroll-container內，否則底部將會受到剪裁。
+
 ### CDN
 ```
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
