@@ -68,12 +68,13 @@ function menu(config) {
             console.log(m)
 
             // Then Run
-            if (config.control == true) {
-                e.setAttribute("style", `${m.Style}; transition-timing-function:${m.CubicBezier.In}; transition-duration:${m.Time.In}; transition-delay:${m.Delay.In};`)
-            }
             if (config.control == false) {
                 e.setAttribute("style", `transition-timing-function:${m.CubicBezier.Out};transition-duration:${m.Time.Out}; transition-delay:${m.Delay.Out};`)
             }
+            if (config.control == true) {
+                e.setAttribute("style", `${m.Style}; transition-timing-function:${m.CubicBezier.In}; transition-duration:${m.Time.In}; transition-delay:${m.Delay.In};`)
+            }
+
         });
     }
     run();
