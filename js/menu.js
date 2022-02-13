@@ -77,7 +77,7 @@ function menu(config) {
 
         });
     }
-    run();
+    // run();
 }
 
 export { menu };
