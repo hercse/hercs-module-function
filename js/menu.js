@@ -1,6 +1,6 @@
 function menu(config) {
     var config = {
-        "control": false, //css class 開關
+        "control": true, //css class 開關
         "transition": "0", //css過場變數
         "items": document.querySelectorAll("[data-menu]"),
         controller: document.querySelector("[data-menu-control]")
@@ -77,7 +77,7 @@ function menu(config) {
 
         });
     }
-    // run();
+    run();
 }
 
 export { menu };
