@@ -1,20 +1,34 @@
 function menu(config) {
     var config = {
-        "control": true, //css class 開關
-        "transition": "0", //css過場變數
-        "items": document.querySelectorAll("[data-menu]"),
+        control: false, //css class 開關
+        transition: "0", //css過場變數
+        itemsRaw: document.querySelectorAll("[data-menu]"),
+        items: [],
         controller: document.querySelector("[data-menu-control]")
     }
-    console.log(config);
-
     config.controller.addEventListener('click', (e) => {
-        config.control = !config.control
-            // console.log(config.control);
+        // console.log(config.control);
         run();
     })
-
-    function run() {
+    window.addEventListener('load', () => {
+        start();
         config.items.forEach(e => {
+            // Then Run
+            e.Raw.setAttribute("style", `${e.Style};`)
+
+        });
+    })
+    console.log(config);
+
+    function start() {
+        document.querySelectorAll(".menu-background a").forEach(e => {
+            e.addEventListener('click', () => {
+                setTimeout(() => {
+                    run();
+                }, 500);
+            })
+        })
+        config.itemsRaw.forEach(e => {
             // 功能：新增紀錄 config.control 上一個變更前的客戶端位置紀錄
             var m = {
                 Time: {
@@ -29,7 +43,8 @@ function menu(config) {
                 Delay: {
                     In: "",
                     Out: ""
-                }
+                },
+                Raw: e
             }
 
             // Time
@@ -64,20 +79,26 @@ function menu(config) {
                 m.Style = e.dataset.menuStyle
             }
             // Output Preview
-            console.log("Output Preview")
-            console.log(m)
+            // console.log("Output Preview")
+            // console.log(m)
 
+            config.items.push(m)
+        });
+    }
+
+    function run() {
+        config.control = !config.control
+        config.items.forEach(e => {
             // Then Run
             if (config.control == false) {
-                e.setAttribute("style", `transition-timing-function:${m.CubicBezier.Out};transition-duration:${m.Time.Out}; transition-delay:${m.Delay.Out};`)
+                e.Raw.setAttribute("style", `${e.Style};transition-timing-function:${e.CubicBezier.Out};transition-duration:${e.Time.Out}; transition-delay:${e.Delay.Out};`)
             }
             if (config.control == true) {
-                e.setAttribute("style", `${m.Style}; transition-timing-function:${m.CubicBezier.In}; transition-duration:${m.Time.In}; transition-delay:${m.Delay.In};`)
+                e.Raw.setAttribute("style", ` transition-timing-function:${e.CubicBezier.In}; transition-duration:${e.Time.In}; transition-delay:${e.Delay.In};`)
             }
 
         });
     }
-    run();
+    // run();
 }
-
 export { menu };
