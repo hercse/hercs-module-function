@@ -1,5 +1,5 @@
-# hercs-module-function
-自己用的模組化功能
+# 模組化功能表
+自己用的模組化功能，包括第一與第二封測版本的typography grid css system。
 
 請求任何使用權：[ [twitter](https://twitter.com/HERC_SE/) ]、[ [email](mailto:hi@herc.se) ]。
 
